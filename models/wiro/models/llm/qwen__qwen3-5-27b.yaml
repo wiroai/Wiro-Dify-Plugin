@@ -1,0 +1,31 @@
+model: qwen/qwen3-5-27b
+label:
+  en_US: qwen/qwen3-5-27b
+model_type: llm
+features:
+- tool-call
+- multi-tool-call
+- stream-tool-call
+model_properties:
+  mode: chat
+  context_size: 25600
+parameter_rules:
+- name: temperature
+  use_template: temperature
+  max: 2.0
+- name: top_p
+  use_template: top_p
+- name: top_k
+  use_template: top_k
+- name: max_tokens
+  use_template: max_tokens
+  default: 8192
+  min: 1
+  max: 16384
+- name: seed
+  label:
+    en_US: Seed
+  type: int
+  required: false
+  help:
+    en_US: Send the same seed to get repeatable answers where the model supports it.

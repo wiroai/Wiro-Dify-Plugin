@@ -1,0 +1,22 @@
+identity:
+  name: get_model
+  author: wiroai
+  label:
+    en_US: Get Model Parameters
+description:
+  human:
+    en_US: Show a Wiro AI model's parameters, options, defaults and price, so you know what to send to Run Any Model.
+  llm: Returns one Wiro AI model's description, price and parameter list with types, options, defaults and notes.
+parameters:
+  - name: model
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Model ID
+    human_description:
+      en_US: The model's ID in owner/model form, for example google/nano-banana-2.
+    llm_description: The model ID in owner/model form.
+extra:
+  python:
+    source: tools/get_model.py

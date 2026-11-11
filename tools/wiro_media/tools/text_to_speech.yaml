@@ -1,0 +1,47 @@
+identity:
+  name: text_to_speech
+  author: wiroai
+  label:
+    en_US: Text to Speech
+description:
+  human:
+    en_US: Turn text into speech with a voice model on Wiro AI. The audio comes back as a file.
+  llm: Reads the given text aloud and returns the audio file.
+parameters:
+  - name: text
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Text
+    human_description:
+      en_US: The text to read aloud.
+    llm_description: The exact text to read aloud.
+  - name: model
+    type: dynamic-select
+    required: false
+    form: form
+    default: elevenlabs/eleven-v4
+    label:
+      en_US: Model
+    human_description:
+      en_US: Speech model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  - name: voice
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Voice
+    human_description:
+      en_US: Optional voice name, for example alice for elevenlabs/eleven-v4. Get Model Parameters lists each model's voices.
+  - name: extra_parameters
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Extra parameters
+    human_description:
+      en_US: 'Optional JSON object with the model''s own parameters, for example {"languageCode": "de"}.'
+extra:
+  python:
+    source: tools/text_to_speech.py

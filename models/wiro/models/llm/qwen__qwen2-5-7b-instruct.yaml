@@ -1,0 +1,41 @@
+model: qwen/qwen2-5-7b-instruct
+label:
+  en_US: qwen/qwen2-5-7b-instruct
+model_type: llm
+features:
+- tool-call
+- multi-tool-call
+- stream-tool-call
+model_properties:
+  mode: chat
+  context_size: 32768
+parameter_rules:
+- name: temperature
+  use_template: temperature
+  max: 2.0
+- name: top_p
+  use_template: top_p
+- name: top_k
+  use_template: top_k
+- name: max_tokens
+  use_template: max_tokens
+  default: 2048
+  min: 1
+  max: 2048
+- name: seed
+  label:
+    en_US: Seed
+  type: int
+  required: false
+  help:
+    en_US: Send the same seed to get repeatable answers where the model supports it.
+- name: response_format
+  label:
+    en_US: Response format
+  type: string
+  required: false
+  options:
+  - text
+  - json_object
+  help:
+    en_US: Ask for plain text or any valid JSON object.

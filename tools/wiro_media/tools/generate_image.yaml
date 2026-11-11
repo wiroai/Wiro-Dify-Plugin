@@ -1,0 +1,78 @@
+identity:
+  name: generate_image
+  author: wiroai
+  label:
+    en_US: Generate Image
+description:
+  human:
+    en_US: Create or edit images with an image model on Wiro AI. The images come back as files.
+  llm: Creates an image from a text prompt, or edits the given images following the prompt, and returns the image files.
+parameters:
+  - name: prompt
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Prompt
+    human_description:
+      en_US: Describe the image you want, or the change to make to the input images.
+    llm_description: A detailed description of the image to create, or of the edit to make to the input images.
+  - name: images
+    type: files
+    required: false
+    form: llm
+    label:
+      en_US: Input images
+    human_description:
+      en_US: Optional. Images for the model to edit or combine.
+    llm_description: Optional images to edit or combine according to the prompt.
+  - name: model
+    type: dynamic-select
+    required: false
+    form: form
+    default: google/nano-banana-2
+    label:
+      en_US: Model
+    human_description:
+      en_US: Image model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  - name: aspect_ratio
+    type: select
+    required: false
+    form: form
+    label:
+      en_US: Aspect ratio
+    human_description:
+      en_US: Optional. Used when the model offers this ratio.
+    options:
+      - value: "1:1"
+        label:
+          en_US: "1:1"
+      - value: "16:9"
+        label:
+          en_US: "16:9"
+      - value: "9:16"
+        label:
+          en_US: "9:16"
+      - value: "4:3"
+        label:
+          en_US: "4:3"
+      - value: "3:4"
+        label:
+          en_US: "3:4"
+      - value: "3:2"
+        label:
+          en_US: "3:2"
+      - value: "2:3"
+        label:
+          en_US: "2:3"
+  - name: extra_parameters
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Extra parameters
+    human_description:
+      en_US: 'Optional JSON object with the model''s own parameters, for example {"resolution": "2K"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/generate_image.py

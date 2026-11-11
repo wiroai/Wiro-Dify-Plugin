@@ -1,0 +1,9 @@
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "W", "B", "UP", "I"]
+ignore = ["UP038", "E501"]
+
+[lint.isort]
+known-first-party = ["models", "wiroapi", "conftest", "provider_loader"]

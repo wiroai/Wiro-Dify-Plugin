@@ -1,0 +1,60 @@
+identity:
+  name: run_model
+  author: wiroai
+  label:
+    en_US: Run Any Model
+description:
+  human:
+    en_US: Run any model in the Wiro AI catalog by its ID with its own parameters. Files come back as files and text as text.
+  llm: Runs any Wiro AI model by its owner/model ID with a JSON object of that model's parameters, and returns its files or text. Call Get Model Parameters first to learn the parameter names.
+parameters:
+  - name: model
+    type: string
+    required: true
+    form: llm
+    label:
+      en_US: Model ID
+    human_description:
+      en_US: The model's ID in owner/model form, for example openai/gpt-image-2. Search Models finds them.
+    llm_description: The model ID in owner/model form, for example openai/gpt-image-2.
+  - name: parameters
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: Parameters
+    human_description:
+      en_US: 'JSON object with the model''s parameters, for example {"prompt": "a red boat", "ratio": "16:9"}. Required ones you leave out get the catalog default where there is one.'
+    llm_description: A JSON object of the model's parameters, keyed by the parameter IDs that Get Model Parameters returns.
+  - name: files
+    type: files
+    required: false
+    form: llm
+    label:
+      en_US: Input files
+    human_description:
+      en_US: Optional files for the model, such as images, audio or documents. They are uploaded to your Wiro AI project first.
+    llm_description: Optional input files for the model.
+  - name: file_parameter
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: File parameter
+    human_description:
+      en_US: Optional. Which parameter gets the files, for example inputImage. Without it the first image field is used.
+    llm_description: Optional ID of the model parameter that receives the input files.
+  - name: wait_seconds
+    type: number
+    required: false
+    form: form
+    default: 240
+    min: 10
+    max: 540
+    label:
+      en_US: Wait up to (seconds)
+    human_description:
+      en_US: How long to wait for the result. A longer task keeps running, and Get Task Result collects it later.
+extra:
+  python:
+    source: tools/run_model.py

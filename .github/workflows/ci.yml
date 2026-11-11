@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-package:
+    runs-on: ubuntu-latest
+    env:
+      DIFY_CLI_VERSION: 0.6.15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r models/wiro/requirements.txt -r tools/wiro_media/requirements.txt pytest pyyaml
+
+      - name: Lint
+        run: |
+          pip install ruff==0.8.6
+          ruff check .
+          ruff format --check .
+
+      - name: Model provider tests (offline)
+        working-directory: models/wiro
+        run: python -m pytest tests/test_schema.py
+
+      - name: Media tools tests (offline)
+        working-directory: tools/wiro_media
+        run: python -m pytest tests/test_offline.py
+
+      - name: Package with the Dify plugin CLI
+        run: |
+          curl -fsSL -o dify "https://github.com/langgenius/dify-plugin-daemon/releases/download/${DIFY_CLI_VERSION}/dify-plugin-linux-amd64"
+          chmod +x dify
+          mkdir -p dist
+          ./dify plugin package models/wiro -o dist/wiro.difypkg
+          ./dify plugin package tools/wiro_media -o dist/wiro_media.difypkg
+          unzip -l dist/wiro.difypkg | tail -n 1
+          unzip -l dist/wiro_media.difypkg | tail -n 1

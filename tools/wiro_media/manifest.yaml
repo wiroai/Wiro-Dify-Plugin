@@ -1,0 +1,37 @@
+version: 0.1.0
+type: plugin
+author: wiroai
+name: wiro_media
+repo: https://github.com/wiroai/Wiro-Dify-Plugin
+contact: support@wiro.ai
+label:
+  en_US: Wiro AI Media
+description:
+  en_US: Generate images, videos, speech and music in Dify workflows and agents with models on Wiro AI, or run any of its 1,000+ models by ID. One API key, and the results come back as files.
+icon: icon.png
+tags:
+  - image
+  - videos
+created_at: 2026-11-10T23:08:41.890335-08:00
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/wiro_media.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.14.2
+privacy: PRIVACY.md
+verified: false
+network:
+  domains:
+    - api.wiro.ai
+    - cdn1.wiro.ai

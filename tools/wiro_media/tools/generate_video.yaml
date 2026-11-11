@@ -1,0 +1,72 @@
+identity:
+  name: generate_video
+  author: wiroai
+  label:
+    en_US: Generate Video
+description:
+  human:
+    en_US: Create a video from a prompt, a start image or both with a video model on Wiro AI. The video comes back as a file.
+  llm: Creates a short video from a text prompt and an optional start image, and returns the video file. Video takes one to several minutes.
+parameters:
+  - name: prompt
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: Prompt
+    human_description:
+      en_US: Describe the scene, the motion and the camera.
+    llm_description: A description of the video to create, including motion and camera.
+  - name: image
+    type: file
+    required: false
+    form: llm
+    label:
+      en_US: Start image
+    human_description:
+      en_US: Optional. The first frame of the video.
+    llm_description: Optional image to use as the first frame of the video.
+  - name: model
+    type: dynamic-select
+    required: false
+    form: form
+    default: bytedance/seedance-v1-pro-fast
+    label:
+      en_US: Model
+    human_description:
+      en_US: Video model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  - name: aspect_ratio
+    type: select
+    required: false
+    form: form
+    label:
+      en_US: Aspect ratio
+    human_description:
+      en_US: Optional. Used when the model offers this ratio.
+    options:
+      - value: "16:9"
+        label:
+          en_US: "16:9"
+      - value: "9:16"
+        label:
+          en_US: "9:16"
+      - value: "1:1"
+        label:
+          en_US: "1:1"
+      - value: "4:3"
+        label:
+          en_US: "4:3"
+      - value: "3:4"
+        label:
+          en_US: "3:4"
+  - name: extra_parameters
+    type: string
+    required: false
+    form: form
+    label:
+      en_US: Extra parameters
+    human_description:
+      en_US: 'Optional JSON object with the model''s own parameters, for example {"duration": "10", "resolution": "720p"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/generate_video.py

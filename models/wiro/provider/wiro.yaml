@@ -1,0 +1,67 @@
+provider: wiro
+label:
+  en_US: Wiro AI
+description:
+  en_US: Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway, with one API key.
+icon_small:
+  en_US: icon.png
+icon_large:
+  en_US: icon.png
+background: "#F9F8F5"
+help:
+  title:
+    en_US: Get an API key from Wiro AI
+  url:
+    en_US: https://wiro.ai/panel/project/new
+supported_model_types:
+  - llm
+configurate_methods:
+  - predefined-model
+  - customizable-model
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter the API key of your Wiro AI project
+    - variable: api_secret
+      label:
+        en_US: API Secret
+      type: secret-input
+      required: false
+      placeholder:
+        en_US: Only for projects that use signature authentication
+model_credential_schema:
+  model:
+    label:
+      en_US: Model ID
+    placeholder:
+      en_US: owner/model, for example openai/gpt-5-4-mini
+  credential_form_schemas:
+    - variable: api_key
+      label:
+        en_US: API Key
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Enter the API key of your Wiro AI project
+    - variable: api_secret
+      label:
+        en_US: API Secret
+      type: secret-input
+      required: false
+      placeholder:
+        en_US: Only for projects that use signature authentication
+models:
+  llm:
+    predefined:
+      - "models/llm/*.yaml"
+    position: "models/llm/_position.yaml"
+extra:
+  python:
+    provider_source: provider/wiro.py
+    model_sources:
+      - "models/llm/llm.py"

@@ -1,0 +1,77 @@
+identity:
+  name: search_models
+  author: wiroai
+  label:
+    en_US: Search Models
+description:
+  human:
+    en_US: Search the Wiro AI catalog of 1,000+ models by name and task.
+  llm: Searches Wiro AI models by name and category and returns their IDs, titles, categories and prices.
+parameters:
+  - name: query
+    type: string
+    required: false
+    form: llm
+    label:
+      en_US: Search
+    human_description:
+      en_US: Optional words to look for in model names, for example flux or kling.
+    llm_description: Optional words to match in model names.
+  - name: category
+    type: select
+    required: false
+    form: llm
+    default: any
+    label:
+      en_US: Category
+    human_description:
+      en_US: Optional task to filter by.
+    llm_description: Optional task category to filter by.
+    options:
+      - value: any
+        label:
+          en_US: Any
+      - value: text-to-image
+        label:
+          en_US: Text to image
+      - value: image-to-image
+        label:
+          en_US: Image to image
+      - value: image-editing
+        label:
+          en_US: Image editing
+      - value: text-to-video
+        label:
+          en_US: Text to video
+      - value: image-to-video
+        label:
+          en_US: Image to video
+      - value: video-to-video
+        label:
+          en_US: Video to video
+      - value: text-to-speech
+        label:
+          en_US: Text to speech
+      - value: speech-to-text
+        label:
+          en_US: Speech to text
+      - value: text-to-music
+        label:
+          en_US: Text to music
+      - value: llm
+        label:
+          en_US: LLM
+  - name: limit
+    type: number
+    required: false
+    form: form
+    default: 10
+    min: 1
+    max: 50
+    label:
+      en_US: Results
+    human_description:
+      en_US: How many models to return.
+extra:
+  python:
+    source: tools/search_models.py
