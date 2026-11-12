@@ -26,10 +26,14 @@ Install both plugins from the [Dify Marketplace](https://marketplace.dify.ai/) b
 ## Configure the API key
 
 1. Create a project at [wiro.ai/panel/project/new](https://wiro.ai/panel/project/new) and copy its API key. Projects that use signature authentication also have an API secret.
-2. For the model provider, open **Settings > Model Provider > Wiro AI > Setup** and paste the key, plus the secret for a signature project.
+2. For the model provider, open the **Model Provider** page, find **Wiro AI**, click **Setup** and paste the key, plus the secret for a signature project.
 3. For the tools, open the **Wiro AI Media** plugin, authorize it and paste the same key.
 
 Both plugins check the key with a free request before saving it.
+
+![Wiro AI on Dify's Model Provider page with its chat, text to speech and speech to text models](docs/screenshots/dify-model-provider.webp)
+
+![The Wiro AI Media plugin in Dify with its 18 tools](docs/screenshots/dify-media-tools.webp)
 
 ## Examples
 
@@ -37,9 +41,15 @@ Both plugins check the key with a free request before saving it.
 
 **Generate an image in a workflow.** Add the Generate Image tool, choose a model such as `google/nano-banana-2` or `openai/gpt-image-2`, and connect its `files` output to the End node.
 
+![A Dify workflow that writes an image prompt with a Wiro AI chat model and makes the image with Generate Image, showing the result and its cost](docs/screenshots/dify-workflow-image.webp)
+
 **Turn a summary into speech.** Add Text to Speech after an LLM node and pass the LLM's text to it. The audio file comes back as a Dify file.
 
-**Give a chatbot a voice.** In **Settings > Model Provider**, open **Default Models** and choose Wiro AI models as the Text-to-Speech and Speech-to-Text models. Then turn on Text to Speech and Speech to Text in a chat app's features, and the app reads its answers aloud and takes voice input.
+**Give a chatbot a voice.** On the **Model Provider** page, open **Default Models** and choose Wiro AI models as the Text-to-Speech and Speech-to-Text models. Then turn on Text to Speech and Speech to Text in a chat app's features, and the app reads its answers aloud and takes voice input.
+
+![Dify's Default Model Settings with Wiro AI models for speech to text and text to speech](docs/screenshots/dify-default-models.webp)
+
+![Wiro AI voices in the Text to Speech settings of a Dify chat app](docs/screenshots/dify-voice-settings.webp)
 
 **Prepare product photos.** Chain Edit Image, Upscale Image and Remove Background in a workflow to change a photo with an instruction, make it larger and cut out the product.
 
