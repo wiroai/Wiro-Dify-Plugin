@@ -10,14 +10,14 @@ import hashlib
 import hmac
 import threading
 import time
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from typing import Any
 from urllib.parse import urlparse
 
 import requests
 
 API_URL = "https://api.wiro.ai/v1"
-USER_AGENT = "wiro-dify-plugin/0.1.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
+USER_AGENT = "wiro-dify-plugin/0.2.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
 
 # Output files are served from Wiro AI's CDN. Nothing else is downloaded.
 OUTPUT_HOST_SUFFIX = ".wiro.ai"
@@ -40,6 +40,23 @@ class TaskStillRunning(WiroError):
     def __init__(self, task: Mapping[str, Any]) -> None:
         super().__init__("The task is still running.")
         self.task = dict(task)
+
+
+class StillRunning(WiroError):
+    """A workflow run or a Studio or agent turn outlived the wait. It keeps running on Wiro AI."""
+
+    def __init__(self, state: Mapping[str, Any]) -> None:
+        super().__init__("Still running.")
+        self.state = dict(state)
+
+
+WORKFLOW_FINAL = {"completed", "failed", "stopped", "cancelled"}
+REPLY_FINAL = {"agent_end", "agent_error", "agent_cancel"}
+TEXT_MAX_BYTES = 1024 * 1024
+
+
+def poll_interval(elapsed: float) -> float:
+    return 2 if elapsed < 15 else 5 if elapsed < 60 else 10
 
 
 def _error_text(body: Any) -> str:
@@ -237,6 +254,107 @@ class WiroClient:
                 raise TaskStillRunning(current)
             interval = 2 if elapsed < 15 else 5 if elapsed < 60 else 10
             time.sleep(min(interval, max(0.5, timeout_seconds - elapsed)))
+
+    # -- multipart and text --------------------------------------------
+
+    def _post_form(self, path: str, data: Mapping[str, Any], files: list) -> dict:
+        try:
+            response = self.session.post(
+                f"{API_URL}{path}", data=dict(data), files=files, headers=self._headers(), timeout=UPLOAD_TIMEOUT
+            )
+        except requests.RequestException as exc:
+            raise WiroError("Could not reach Wiro AI. Check the network and try again.") from exc
+        return self._read(response)
+
+    def read_text(self, url: str, max_bytes: int = TEXT_MAX_BYTES) -> str | None:
+        data = self.download(url, max_bytes)
+        return None if data is None else data.decode("utf-8", "replace")
+
+    def _wait(self, read: Callable[[], dict], done: Callable[[dict], bool], timeout_seconds: float) -> dict:
+        started = time.monotonic()
+        failures = 0
+        state: dict = {}
+        while True:
+            elapsed = time.monotonic() - started
+            try:
+                state = read()
+                failures = 0
+                if done(state):
+                    return state
+            except WiroError:
+                failures += 1
+                if failures >= 5:
+                    raise
+            if elapsed >= timeout_seconds:
+                raise StillRunning(state)
+            time.sleep(min(poll_interval(elapsed), max(0.5, timeout_seconds - elapsed)))
+
+    # -- workflows ------------------------------------------------------
+
+    def list_workflows(self, limit: int = 200) -> list[dict]:
+        body = self._post("/Workflow/List", {"scope": "my", "limit": limit, "sort": "updatetime", "order": "DESC"})
+        return list(body.get("workflow") or [])
+
+    def workflow_detail(self, slug: str) -> dict:
+        rows = self._post("/Workflow/Detail", {"slug": slug}).get("workflow") or []
+        if not rows:
+            raise WiroError(f"Wiro AI has no workflow called {slug}.")
+        return rows[0]
+
+    def run_workflow(self, slug: str, inputs: Mapping[str, Any]) -> str:
+        body: dict[str, Any] = {"slug": slug}
+        if inputs:
+            body["input"] = dict(inputs)
+        token = self._post("/Workflow/Run", body).get("workflowtoken")
+        if not token:
+            raise WiroError("Wiro AI started the workflow but returned no run token. Check the run on wiro.ai.")
+        return str(token)
+
+    def workflow_run(self, token: str) -> dict:
+        return self._post("/Workflow/RunDetail", {"workflowtoken": token})
+
+    def wait_workflow(self, token: str, timeout_seconds: float) -> dict:
+        return self._wait(
+            lambda: self.workflow_run(token),
+            lambda body: (body.get("workflowrun") or {}).get("status") in WORKFLOW_FINAL,
+            timeout_seconds,
+        )
+
+    # -- Studio and agents ---------------------------------------------
+
+    @staticmethod
+    def _attachments(field: str, files: list[tuple[str, bytes, str]]) -> list:
+        return [(field, (name, data, mime)) for name, data, mime in files]
+
+    def studio_send(self, message: str, session: str, files: list | None = None, model: str | None = None) -> dict:
+        data: dict[str, Any] = {"message": message, "sessionkey": session}
+        if model:
+            data["model"] = model
+        if files:
+            return self._post_form("/Studio/Message/SendForm", data, self._attachments("attachments", files))
+        return self._post("/Studio/Message/Send", data)
+
+    def studio_detail(self, agenttoken: str, session: str) -> dict:
+        return self._post("/Studio/Message/Detail", {"agenttoken": agenttoken, "sessionkey": session}).get("data") or {}
+
+    def studio_tasks(self, limit: int = 50) -> list[dict]:
+        return list(self._post("/Studio/Tasks", {"limit": limit}).get("tasks") or [])
+
+    def my_agents(self) -> list[dict]:
+        return list(self._post("/UserAgent/MyAgents", {}).get("useragents") or [])
+
+    def agent_send(self, agent: str, message: str, session: str, files: list | None = None) -> dict:
+        data = {"useragentguid": agent, "message": message, "sessionkey": session}
+        if files:
+            return self._post_form("/UserAgent/Message/Send", data, self._attachments("attachments[]", files))
+        return self._post("/UserAgent/Message/Send", data)
+
+    def agent_detail(self, agenttoken: str, session: str) -> dict:
+        body = self._post("/UserAgent/Message/Detail", {"agenttoken": agenttoken, "sessionkey": session})
+        return body.get("data") or {}
+
+    def wait_reply(self, read: Callable[[], dict], timeout_seconds: float) -> dict:
+        return self._wait(read, lambda data: data.get("status") in REPLY_FINAL, timeout_seconds)
 
 
 def split_model_id(model_id: str) -> tuple[str, str]:

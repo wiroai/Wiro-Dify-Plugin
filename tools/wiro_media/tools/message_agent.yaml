@@ -1,0 +1,59 @@
+identity:
+  name: message_agent
+  author: wiroai
+  label:
+    en_US: Message Agent
+description:
+  human:
+    en_US: Send a message to one of your deployed Wiro AI agents and get its answer.
+  llm: Sends a message to a deployed Wiro AI agent, waits for its answer and returns the answer text and any files.
+parameters:
+- name: agent
+  type: dynamic-select
+  required: true
+  form: form
+  label:
+    en_US: Agent
+  human_description:
+    en_US: One of the agents deployed in your Wiro AI workspace. The list comes live from your account.
+- name: message
+  type: string
+  required: true
+  form: llm
+  label:
+    en_US: Message
+  human_description:
+    en_US: The message for the agent.
+  llm_description: The message to send to the agent.
+- name: files
+  type: files
+  required: false
+  form: llm
+  label:
+    en_US: Attachments
+  human_description:
+    en_US: Optional files for the agent.
+  llm_description: Optional files for the agent.
+- name: session
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Session
+  human_description:
+    en_US: The agent keeps the conversation of each session.
+  default: dify
+- name: wait_seconds
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Wait up to (seconds)
+  human_description:
+    en_US: How long to wait for the result before the tool returns.
+  default: 300
+  min: 10
+  max: 540
+extra:
+  python:
+    source: tools/message_agent.py

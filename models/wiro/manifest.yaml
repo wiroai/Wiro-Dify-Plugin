@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.2.0
 type: plugin
 author: wiroai
 name: wiro
@@ -7,7 +7,7 @@ contact: support@wiro.ai
 label:
   en_US: Wiro AI
 description:
-  en_US: Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway, with one API key. Context sizes, output limits, prices and vision, document and tool support come filled in.
+  en_US: Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway, plus text to speech and speech to text models from ElevenLabs, Google, OpenAI Whisper and others, all with one API key. Context sizes, output limits, prices, voices and vision, document and tool support come filled in.
 icon: icon.png
 tags:
   - agent
@@ -33,3 +33,5 @@ verified: false
 network:
   domains:
     - llm.wiro.ai
+    - api.wiro.ai
+    - cdn1.wiro.ai

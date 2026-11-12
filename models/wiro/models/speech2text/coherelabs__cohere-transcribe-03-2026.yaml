@@ -1,0 +1,7 @@
+model: coherelabs/cohere-transcribe-03-2026
+label:
+  en_US: coherelabs/cohere-transcribe-03-2026
+model_type: speech2text
+model_properties:
+  file_upload_limit: 100
+  supported_file_extensions: mp3,mp4,mpeg,mpga,m4a,wav,webm

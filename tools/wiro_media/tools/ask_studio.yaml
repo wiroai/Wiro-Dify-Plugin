@@ -1,0 +1,59 @@
+identity:
+  name: ask_studio
+  author: wiroai
+  label:
+    en_US: Ask Studio
+description:
+  human:
+    en_US: Ask Wiro AI Studio, the creative agent, for images, video, audio and more. It picks the models, runs them and replies with the files.
+  llm: Sends a creative request to Wiro AI Studio, waits for its reply and returns the reply text and files.
+parameters:
+- name: message
+  type: string
+  required: true
+  form: llm
+  label:
+    en_US: Request
+  human_description:
+    en_US: 'What to make: the subject, style, format and how many results.'
+  llm_description: The creative request for Studio, with subject, style, format and count.
+- name: files
+  type: files
+  required: false
+  form: llm
+  label:
+    en_US: Attachments
+  human_description:
+    en_US: Optional files for Studio to use, such as a product photo or a logo.
+  llm_description: Optional files for Studio to use.
+- name: session
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Session
+  human_description:
+    en_US: Studio keeps the conversation of each session. Use one name per piece of work.
+  default: dify
+- name: chat_model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Chat model
+  human_description:
+    en_US: Optional. The chat model Studio thinks with. Studio's default is used when empty.
+- name: wait_seconds
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Wait up to (seconds)
+  human_description:
+    en_US: How long to wait for the result before the tool returns.
+  default: 480
+  min: 10
+  max: 540
+extra:
+  python:
+    source: tools/ask_studio.py

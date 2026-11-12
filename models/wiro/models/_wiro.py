@@ -17,7 +17,7 @@ from typing import Any
 import requests
 
 GATEWAY_URL = "https://llm.wiro.ai/v1"
-USER_AGENT = "wiro-dify-plugin/0.1.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
+USER_AGENT = "wiro-dify-plugin/0.2.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
 MODELS_PAGE = "https://wiro.ai/models?categories=llm-tool-call"
 
 # (connect, read) seconds for catalog calls. Model calls use the SDK timeout.

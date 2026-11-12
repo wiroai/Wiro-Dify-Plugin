@@ -1,0 +1,760 @@
+model: google/gemini-2-5-tts
+label:
+  en_US: google/gemini-2-5-tts
+model_type: tts
+model_properties:
+  default_voice: Achernar
+  voices:
+  - mode: Achernar
+    name: Achernar Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Achird
+    name: Achird Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Algenib
+    name: Algenib Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Algieba
+    name: Algieba Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Alnilam
+    name: Alnilam Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Aoede
+    name: Aoede Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Autonoe
+    name: Autonoe Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Callirrhoe
+    name: Callirrhoe Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Charon
+    name: Charon Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Despina
+    name: Despina Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Enceladus
+    name: Enceladus Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Erinome
+    name: Erinome Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Fenrir
+    name: Fenrir Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Gacrux
+    name: Gacrux Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Iapetus
+    name: Iapetus Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Kore
+    name: Kore Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Laomedeia
+    name: Laomedeia Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Leda
+    name: Leda Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Orus
+    name: Orus Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Pulcherrima
+    name: Pulcherrima Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Puck
+    name: Puck Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Rasalgethi
+    name: Rasalgethi Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Sadachbia
+    name: Sadachbia Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Sadaltager
+    name: Sadaltager Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Schedar
+    name: Schedar Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Sulafat
+    name: Sulafat Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Umbriel
+    name: Umbriel Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Vindemiatrix
+    name: Vindemiatrix Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Zephyr
+    name: Zephyr Female
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Zubenelgenubi
+    name: Zubenelgenubi Male
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  word_limit: 3000
+  audio_type: mp3
+  max_workers: 3

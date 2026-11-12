@@ -1,0 +1,66 @@
+identity:
+  name: lipsync
+  author: wiroai
+  label:
+    en_US: Lipsync
+description:
+  human:
+    en_US: 'Make a face in a picture speak: a talking video with lip sync from speech audio, or from a script on models that voice text, with a talking head model on Wiro AI.'
+  llm: Creates a talking video of the face in the image, lip-synced to the given speech audio or script, and returns the video file.
+parameters:
+- name: image
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Face image
+  human_description:
+    en_US: A picture of the person or character who speaks.
+  llm_description: The image of the face that should speak.
+- name: audio
+  type: file
+  required: false
+  form: llm
+  label:
+    en_US: Speech audio
+  human_description:
+    en_US: The speech to lip-sync to. Optional on models that voice a script.
+  llm_description: The speech audio to lip-sync to.
+- name: script
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: Script
+  human_description:
+    en_US: Optional. Text the character says, for models that turn text into speech themselves.
+  llm_description: Optional text for the character to say.
+- name: prompt
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: Prompt
+  human_description:
+    en_US: Optional. The look of the video, such as the background or the camera.
+  llm_description: Optional description of the video's look.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Talking head model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: pruna/p-video-avatar
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"resolution": "720p"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/lipsync.py

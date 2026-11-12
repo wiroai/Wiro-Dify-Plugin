@@ -1,0 +1,535 @@
+model: elevenlabs/text-to-speech
+label:
+  en_US: elevenlabs/text-to-speech
+model_type: tts
+model_properties:
+  default_voice: Xb7hH8MSUJpSbSDYk0k2
+  voices:
+  - mode: pNInz6obpgDQGcFmaJgB
+    name: Adam - Dominant, Firm
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Xb7hH8MSUJpSbSDYk0k2
+    name: Alice - Clear, Engaging Educator
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: hpp4J3VqNfWAUOO0d1Us
+    name: Bella - Professional, Bright, Warm
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: pqHfZKP75CvOlQylNhV4
+    name: Bill - Wise, Mature, Balanced
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: nPczCjzI2devNBz1zQrb
+    name: Brian - Deep, Resonant and Comforting
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: N2lVS1w4EtoT3dr4eOWO
+    name: Callum - Husky Trickster
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: IKne3meq5aSn9XLyUdCD
+    name: Charlie - Deep, Confident, Energetic
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: iP95p4xoKVk53GoZ742B
+    name: Chris - Charming, Down-to-Earth
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: onwK4e9ZLuTAKqWW03F9
+    name: Daniel - Steady Broadcaster
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: cjVigY5qzO86Huf0OWal
+    name: Eric - Smooth, Trustworthy
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: JBFqnCBsd6RMkjVDRZzb
+    name: George - Warm, Captivating Storyteller
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: SOYHLrjzK2X1ezoPC6cr
+    name: Harry - Fierce Warrior
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: cgSgspJ2msm6clMCkdW9
+    name: Jessica - Playful, Bright, Warm
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: FGY2WhTYpPnrIDTdsKH5
+    name: Laura - Enthusiast, Quirky Attitude
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: TX3LPaxmHKxFdv7VOQHJ
+    name: Liam - Energetic, Social Media Creator
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: pFZP5JQG7iQjIQuC4Bku
+    name: Lily - Velvety Actress
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: XrExE9yKIg1WjnnlVkGX
+    name: Matilda - Knowledgable, Professional
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: SAz9YHcvj6GT2YYXdXww
+    name: River - Relaxed, Neutral, Informative
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: CwhRBWXzGAHq8TQ4Fs17
+    name: Roger - Laid-Back, Casual, Resonant
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: EXAVITQu4vr4xnSDxMaL
+    name: Sarah - Mature, Reassuring, Confident
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: bIHbv24MWmeRgasZH58o
+    name: Will - Relaxed Optimist
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  word_limit: 3000
+  audio_type: mp3
+  max_workers: 3

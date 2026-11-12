@@ -1,0 +1,39 @@
+identity:
+  name: generate_3d
+  author: wiroai
+  label:
+    en_US: Generate 3D
+description:
+  human:
+    en_US: Turn a picture of an object into a 3D model (GLB file) with a 3D generation model on Wiro AI.
+  llm: Creates a 3D model from the given image and returns it as a GLB file. It takes one to several minutes.
+parameters:
+- name: image
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Image
+  human_description:
+    en_US: A clear picture of one object, ideally on a plain background.
+  llm_description: The image of the object to turn into a 3D model.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: 3D generation model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: microsoft/trellis-2
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"texture_size": "2048"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/generate_3d.py

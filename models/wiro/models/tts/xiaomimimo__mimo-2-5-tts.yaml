@@ -1,0 +1,210 @@
+model: xiaomimimo/mimo-2-5-tts
+label:
+  en_US: xiaomimimo/mimo-2-5-tts
+model_type: tts
+model_properties:
+  default_voice: Mia
+  voices:
+  - mode: Mia
+    name: Mia (English, female)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Chloe
+    name: Chloe (English, female)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Milo
+    name: Milo (English, male)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: Dean
+    name: Dean (English, male)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: 冰糖
+    name: Bingtang (Chinese, female)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: 茉莉
+    name: Moli (Chinese, female)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: 苏打
+    name: Suda (Chinese, male)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: 白桦
+    name: Baihua (Chinese, male)
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  word_limit: 3000
+  audio_type: mp3
+  max_workers: 3

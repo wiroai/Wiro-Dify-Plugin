@@ -1,0 +1,48 @@
+identity:
+  name: speech_to_text
+  author: wiroai
+  label:
+    en_US: Speech to Text
+description:
+  human:
+    en_US: Transcribe speech in an audio or video file with a transcription model on Wiro AI.
+  llm: Transcribes the speech in the given audio or video file and returns the text.
+parameters:
+- name: audio
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Audio or video
+  human_description:
+    en_US: The recording to transcribe, such as an MP3, WAV, M4A or MP4 file.
+  llm_description: The audio or video file to transcribe.
+- name: language
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: Language
+  human_description:
+    en_US: Optional. The spoken language, for example English or en, when the model takes one.
+  llm_description: Optional spoken language of the recording.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Speech to text model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: elevenlabs/speech-to-text
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"diarization": true}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/speech_to_text.py

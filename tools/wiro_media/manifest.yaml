@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 0.2.0
 type: plugin
 author: wiroai
 name: wiro_media
@@ -7,7 +7,7 @@ contact: support@wiro.ai
 label:
   en_US: Wiro AI Media
 description:
-  en_US: Generate images, videos, speech and music in Dify workflows and agents with models on Wiro AI, or run any of its 1,000+ models by ID. One API key, and the results come back as files.
+  en_US: Image generation and editing, upscaling, background removal, video, lipsync, speech, transcription, music and 3D in Dify workflows and agents with models on Wiro AI. Also runs any of its 1,000+ models by ID, your saved Wiro AI workflows, Studio and your agents. One API key, and the results come back as files.
 icon: icon.png
 tags:
   - image

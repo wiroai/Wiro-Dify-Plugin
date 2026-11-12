@@ -1,0 +1,78 @@
+identity:
+  name: edit_image
+  author: wiroai
+  label:
+    en_US: Edit Image
+description:
+  human:
+    en_US: Change an image with a text instruction, such as removing an object or changing the style, with an image model on Wiro AI.
+  llm: Edits the given images following the instruction and returns the edited image files.
+parameters:
+- name: images
+  type: files
+  required: true
+  form: llm
+  label:
+    en_US: Images
+  human_description:
+    en_US: The image to edit. Some models also combine several images.
+  llm_description: The images to edit.
+- name: prompt
+  type: string
+  required: true
+  form: llm
+  label:
+    en_US: Instruction
+  human_description:
+    en_US: 'What to change, for example: replace the sky with a sunset.'
+  llm_description: The edit to make, in plain words.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Image editing model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: google/nano-banana-2
+- name: aspect_ratio
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Aspect ratio
+  human_description:
+    en_US: Optional. Used when the model offers this ratio.
+  options:
+  - value: '1:1'
+    label:
+      en_US: '1:1'
+  - value: '16:9'
+    label:
+      en_US: '16:9'
+  - value: '9:16'
+    label:
+      en_US: '9:16'
+  - value: '4:3'
+    label:
+      en_US: '4:3'
+  - value: '3:4'
+    label:
+      en_US: '3:4'
+  - value: '3:2'
+    label:
+      en_US: '3:2'
+  - value: '2:3'
+    label:
+      en_US: '2:3'
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"resolution": "2K"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/edit_image.py

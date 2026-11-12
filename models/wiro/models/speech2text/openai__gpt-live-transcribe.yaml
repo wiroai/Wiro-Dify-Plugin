@@ -1,0 +1,7 @@
+model: openai/gpt-live-transcribe
+label:
+  en_US: openai/gpt-live-transcribe
+model_type: speech2text
+model_properties:
+  file_upload_limit: 100
+  supported_file_extensions: mp3,mp4,mpeg,mpga,m4a,wav,webm

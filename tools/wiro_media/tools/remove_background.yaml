@@ -1,0 +1,39 @@
+identity:
+  name: remove_background
+  author: wiroai
+  label:
+    en_US: Remove Background
+description:
+  human:
+    en_US: Cut the subject out of an image and return it on a transparent background, with a background removal model on Wiro AI.
+  llm: Removes the background of the given image and returns the cut-out image file.
+parameters:
+- name: image
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Image
+  human_description:
+    en_US: The image whose background should be removed.
+  llm_description: The image to cut out.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Background removal model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: wiro/remove-background
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: Optional JSON object with the model's own parameters, for example {}. Get Model Parameters lists them.
+extra:
+  python:
+    source: tools/remove_background.py

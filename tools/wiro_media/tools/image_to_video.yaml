@@ -1,0 +1,72 @@
+identity:
+  name: image_to_video
+  author: wiroai
+  label:
+    en_US: Image to Video
+description:
+  human:
+    en_US: Animate a still image into a short video with a video model on Wiro AI.
+  llm: Turns the given image into a short video, optionally guided by a prompt, and returns the video file. It takes one to several minutes.
+parameters:
+- name: image
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Image
+  human_description:
+    en_US: The first frame of the video.
+  llm_description: The image to animate.
+- name: prompt
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: Prompt
+  human_description:
+    en_US: 'Optional. The motion and camera, for example: slow zoom in, leaves moving in the wind.'
+  llm_description: Optional description of the motion and camera.
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Image to video model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: bytedance/seedance-v1-pro-fast
+- name: aspect_ratio
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Aspect ratio
+  human_description:
+    en_US: Optional. Used when the model offers this ratio.
+  options:
+  - value: '16:9'
+    label:
+      en_US: '16:9'
+  - value: '9:16'
+    label:
+      en_US: '9:16'
+  - value: '1:1'
+    label:
+      en_US: '1:1'
+  - value: '4:3'
+    label:
+      en_US: '4:3'
+  - value: '3:4'
+    label:
+      en_US: '3:4'
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"duration": "10", "resolution": "720p"}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/image_to_video.py

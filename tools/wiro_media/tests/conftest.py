@@ -3,6 +3,7 @@ import os
 import sys
 from pathlib import Path
 
+import dify_plugin  # noqa: F401  (the SDK patches gevent; it must load before requests and ssl)
 import pytest
 
 PLUGIN_ROOT = Path(__file__).resolve().parent.parent

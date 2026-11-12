@@ -4,7 +4,7 @@ identity:
   label:
     en_US: Wiro AI Media
   description:
-    en_US: Generate images, videos, speech and music with models on Wiro AI, or run any of its 1,000+ models by ID. Results come back as files.
+    en_US: Generate and edit images, make videos, talking avatars, speech, music and 3D models, transcribe audio, run any of the 1,000+ models on Wiro AI, your saved workflows, Studio and your agents. Results come back as files.
   icon: icon.png
   tags:
     - image
@@ -31,10 +31,20 @@ credentials_for_provider:
       en_US: Projects with signature authentication sign each request with this secret. It is never sent.
 tools:
   - tools/generate_image.yaml
+  - tools/edit_image.yaml
+  - tools/upscale_image.yaml
+  - tools/remove_background.yaml
   - tools/generate_video.yaml
+  - tools/image_to_video.yaml
+  - tools/lipsync.yaml
   - tools/text_to_speech.yaml
+  - tools/speech_to_text.yaml
   - tools/generate_music.yaml
+  - tools/generate_3d.yaml
   - tools/run_model.yaml
+  - tools/run_workflow.yaml
+  - tools/ask_studio.yaml
+  - tools/message_agent.yaml
   - tools/get_task.yaml
   - tools/search_models.yaml
   - tools/get_model.yaml

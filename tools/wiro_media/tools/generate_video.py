@@ -36,8 +36,6 @@ class GenerateVideoTool(Tool):
                 aspect_ratio=tool_parameters.get("aspect_ratio") or None,
                 extra=parse_json_object(tool_parameters.get("extra_parameters"), "Extra parameters"),
             )
-            for note in notes:
-                yield self.create_text_message(note + "\n")
-            yield from run_and_deliver(self, client, model_id, parameters, WAIT_SECONDS)
+            yield from run_and_deliver(self, client, model_id, parameters, WAIT_SECONDS, notes)
         except WiroError as exc:
             raise ValueError(str(exc)) from None

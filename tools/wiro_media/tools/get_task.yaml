@@ -5,8 +5,8 @@ identity:
     en_US: Get Task Result
 description:
   human:
-    en_US: Collect the files of a Wiro AI task that was still running when another tool returned, or check its status.
-  llm: Returns the result files or text of a Wiro AI task by its task token or task ID, waiting a little if it is still running.
+    en_US: Collect the files of a Wiro AI task or workflow run that was still running when another tool returned, or check its status.
+  llm: Returns the result files or text of a Wiro AI task or workflow run by its token or task ID, waiting a little if it is still running.
 parameters:
   - name: task
     type: string
@@ -15,7 +15,7 @@ parameters:
     label:
       en_US: Task token or ID
     human_description:
-      en_US: The task token or task ID that a Wiro AI tool returned.
+      en_US: The task token, workflow run token or task ID that a Wiro AI tool returned.
     llm_description: The task token or numeric task ID returned by an earlier Wiro AI tool call.
   - name: wait_seconds
     type: number

@@ -1,0 +1,54 @@
+identity:
+  name: upscale_image
+  author: wiroai
+  label:
+    en_US: Upscale Image
+description:
+  human:
+    en_US: Make an image larger and sharper with an upscaling model on Wiro AI.
+  llm: Upscales the given image and returns the larger image file.
+parameters:
+- name: image
+  type: file
+  required: true
+  form: llm
+  label:
+    en_US: Image
+  human_description:
+    en_US: The image to upscale.
+  llm_description: The image to upscale.
+- name: scale
+  type: select
+  required: false
+  form: form
+  label:
+    en_US: Scale
+  human_description:
+    en_US: Optional. How many times larger, when the model offers it.
+  options:
+  - value: '2'
+    label:
+      en_US: '2'
+  - value: '4'
+    label:
+      en_US: '4'
+- name: model
+  type: dynamic-select
+  required: false
+  form: form
+  label:
+    en_US: Model
+  human_description:
+    en_US: Upscaling model on Wiro AI. The list comes live from the Wiro AI catalog, most used first.
+  default: xinntao/real-esrgan
+- name: extra_parameters
+  type: string
+  required: false
+  form: form
+  label:
+    en_US: Extra parameters
+  human_description:
+    en_US: 'Optional JSON object with the model''s own parameters, for example {"faceEnhance": true}. Get Model Parameters lists them.'
+extra:
+  python:
+    source: tools/upscale_image.py

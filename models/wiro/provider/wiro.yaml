@@ -2,7 +2,7 @@ provider: wiro
 label:
   en_US: Wiro AI
 description:
-  en_US: Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway, with one API key.
+  en_US: Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway, plus text to speech and speech to text models, with one API key.
 icon_small:
   en_US: icon.png
 icon_large:
@@ -15,6 +15,8 @@ help:
     en_US: https://wiro.ai/panel/project/new
 supported_model_types:
   - llm
+  - tts
+  - speech2text
 configurate_methods:
   - predefined-model
   - customizable-model
@@ -39,7 +41,7 @@ model_credential_schema:
     label:
       en_US: Model ID
     placeholder:
-      en_US: owner/model, for example openai/gpt-5-4-mini
+      en_US: owner/model, for example openai/gpt-5-4-mini or elevenlabs/eleven-v4
   credential_form_schemas:
     - variable: api_key
       label:
@@ -60,8 +62,18 @@ models:
     predefined:
       - "models/llm/*.yaml"
     position: "models/llm/_position.yaml"
+  tts:
+    predefined:
+      - "models/tts/*.yaml"
+    position: "models/tts/_position.yaml"
+  speech2text:
+    predefined:
+      - "models/speech2text/*.yaml"
+    position: "models/speech2text/_position.yaml"
 extra:
   python:
     provider_source: provider/wiro.py
     model_sources:
       - "models/llm/llm.py"
+      - "models/tts/tts.py"
+      - "models/speech2text/speech2text.py"

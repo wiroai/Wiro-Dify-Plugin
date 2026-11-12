@@ -4,7 +4,7 @@
 
 # Wiro AI plugins for Dify
 
-Use the Wiro AI LLM gateway as a model provider in Dify, and generate images, videos, speech and music in Dify workflows and agents with 1,000+ models on Wiro AI.
+Use the Wiro AI LLM gateway and Wiro AI voice models as a model provider in Dify, and create images, videos, speech, music and 3D models in Dify workflows and agents with 1,000+ models on Wiro AI. Your saved Wiro AI workflows, Studio and agents run from Dify too.
 
 [![Dify plugins](https://img.shields.io/badge/Dify-plugins-111111?style=for-the-badge&color=111111)](https://marketplace.dify.ai/) [![Python 3.12](https://img.shields.io/badge/Python-3.12-111111?style=for-the-badge&color=111111)](#development) [![License: MIT](https://img.shields.io/badge/license-MIT-111111?style=for-the-badge&color=111111)](./LICENSE)
 
@@ -16,8 +16,8 @@ Use the Wiro AI LLM gateway as a model provider in Dify, and generate images, vi
 
 | Plugin | Type | What it adds to Dify |
 | --- | --- | --- |
-| [Wiro AI](./models/wiro) (`wiroai/wiro`) | Model provider | Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway at `https://llm.wiro.ai/v1`, with context sizes, output limits, prices, vision, PDF input, tool calling and JSON Schema output filled in for each model |
-| [Wiro AI Media](./tools/wiro_media) (`wiroai/wiro_media`) | Tools | Generate Image, Generate Video, Text to Speech, Generate Music, Run Any Model, Get Task Result, Search Models and Get Model Parameters, with results returned as Dify files |
+| [Wiro AI](./models/wiro) (`wiroai/wiro`) | Model provider | Chat models from OpenAI, Anthropic, Google, xAI, DeepSeek, Qwen and more through the Wiro AI gateway at `https://llm.wiro.ai/v1`, with context sizes, output limits, prices, vision, PDF input, tool calling and JSON Schema output filled in for each model. Text to speech and speech to text models from ElevenLabs, Google, OpenAI Whisper and others for Dify's voice features |
+| [Wiro AI Media](./tools/wiro_media) (`wiroai/wiro_media`) | Tools | Generate Image, Edit Image, Upscale Image, Remove Background, Generate Video, Image to Video, Lipsync, Text to Speech, Speech to Text, Generate Music, Generate 3D, Run Any Model, Run Workflow, Ask Studio, Message Agent, Get Task Result, Search Models and Get Model Parameters, with results returned as Dify files |
 
 ## Install
 
@@ -39,7 +39,13 @@ Both plugins check the key with a free request before saving it.
 
 **Turn a summary into speech.** Add Text to Speech after an LLM node and pass the LLM's text to it. The audio file comes back as a Dify file.
 
-**Let an agent use any model.** Give an agent Search Models, Get Model Parameters and Run Any Model, and it can pick and run a model from the whole catalog, such as an upscaler or a background remover.
+**Give a chatbot a voice.** In **Settings > Model Provider**, open **Default Models** and choose Wiro AI models as the Text-to-Speech and Speech-to-Text models. Then turn on Text to Speech and Speech to Text in a chat app's features, and the app reads its answers aloud and takes voice input.
+
+**Prepare product photos.** Chain Edit Image, Upscale Image and Remove Background in a workflow to change a photo with an instruction, make it larger and cut out the product.
+
+**Run your own Wiro AI workflows.** Build a workflow on Wiro AI, then run it from Dify with Run Workflow: pick it from the list and pass its inputs as JSON.
+
+**Let an agent use any model.** Give an agent Search Models, Get Model Parameters and Run Any Model, and it can pick and run a model from the whole catalog.
 
 The plugin READMEs cover every setting: [Wiro AI](./models/wiro/README.md) and [Wiro AI Media](./tools/wiro_media/README.md).
 
@@ -52,20 +58,20 @@ python3.12 -m venv .venv && . .venv/bin/activate
 pip install -r models/wiro/requirements.txt pytest pyyaml
 
 # Offline tests
-(cd models/wiro && pytest tests/test_schema.py)
-(cd tools/wiro_media && pytest tests/test_offline.py)
+(cd models/wiro && pytest tests/test_schema.py tests/test_speech.py)
+(cd tools/wiro_media && pytest tests/test_offline.py tests/test_offline_v2.py)
 
-# Live tests against Wiro AI (the media tests run cheap models, about $0.10)
+# Live tests against Wiro AI, under $1 in total.
+# In tools/wiro_media, -m "not paid" skips the tests that run models.
 export WIRO_API_KEY=...
 (cd models/wiro && pytest)
 (cd tools/wiro_media && pytest)
 
-# Package
-dify plugin package models/wiro -o dist/wiro-0.1.0.difypkg
-dify plugin package tools/wiro_media -o dist/wiro_media-0.1.0.difypkg
+# Package both plugins into dist/
+scripts/package.sh
 ```
 
-The model provider's model list comes from the gateway catalog. After models are added to the gateway, refresh it with `python scripts/generate_models.py` (it needs `WIRO_API_KEY`) and bump the plugin version.
+The model provider's model lists come from the gateway catalog and, for the voice models, from the Wiro AI model catalog. After models are added, refresh them with `python scripts/generate_models.py` (it needs `WIRO_API_KEY`) and bump the plugin version.
 
 ## More from Wiro AI
 

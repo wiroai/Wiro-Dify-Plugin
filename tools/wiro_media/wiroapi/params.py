@@ -59,6 +59,18 @@ def default_value(item: Mapping[str, Any]) -> str | None:
     return str(raw)
 
 
+def catalog_choice(item: Mapping[str, Any]) -> str | None:
+    """The catalog default, matched to the item's options when it has a list (case aside)."""
+    value = default_value(item)
+    choices = option_values(item)
+    if not choices or value in choices:
+        return value
+    folded = {c.lower(): c for c in choices}
+    if value is not None and value.lower() in folded:
+        return folded[value.lower()]
+    return choices[0]
+
+
 def option_values(item: Mapping[str, Any]) -> list[str]:
     values = []
     for option in item.get("options") or []:
@@ -107,7 +119,32 @@ def voice_param(items: list[dict]) -> dict | None:
     return find(items, *VOICE_IDS)
 
 
-def put_files(item: Mapping[str, Any], urls: list[str], parameters: dict[str, Any]) -> None:
+def media_param(items: list[dict], word: str) -> dict | None:
+    """The main audio or video file field: input<Word>, or the first file field with the word in its id."""
+    exact = find(items, "input" + word.capitalize())
+    if exact and is_file(exact):
+        return exact
+    return next((item for item in items if is_file(item) and word in str(item["id"]).lower()), None)
+
+
+def match_option(item: Mapping[str, Any], value: Any) -> str | None:
+    """The option value that matches a setting, by value or label and ignoring case; None if none does."""
+    text = str(value).strip()
+    rows = item.get("options") or []
+    if not rows:
+        return text
+    for option in rows:
+        if not isinstance(option, dict):
+            option = {"value": option}
+        candidates = {str(option.get("value", "")).lower(), str(option.get("text", "")).lower()}
+        if text.lower() in candidates:
+            return str(option.get("value"))
+    return None
+
+
+def put_files(
+    item: Mapping[str, Any], urls: list[str], parameters: dict[str, Any], items: list[dict] | None = None
+) -> None:
     """Place file URLs the way each file field takes them."""
     item_id = str(item["id"])
     kind = str(item.get("type"))
@@ -122,7 +159,9 @@ def put_files(item: Mapping[str, Any], urls: list[str], parameters: dict[str, An
     else:
         if len(urls) > 1:
             raise ValueError(f"{item_id} takes one file, and {len(urls)} were given.")
-        parameters[item_id] = urls[0]
+        # A single file field with a companion <id>Url field takes the link there.
+        target = f"{item_id}Url" if items and find(items, f"{item_id}Url") else item_id
+        parameters[target] = urls[0]
 
 
 def fill_required(items: list[dict], parameters: dict[str, Any]) -> dict[str, Any]:
@@ -135,7 +174,7 @@ def fill_required(items: list[dict], parameters: dict[str, Any]) -> dict[str, An
             continue
         if is_file(item) and any(key.startswith(item_id) and filled.get(key) for key in filled):
             continue
-        value = None if is_sample(item) else default_value(item)
+        value = None if is_sample(item) else catalog_choice(item)
         if value is None:
             missing.append(item_id)
         else:

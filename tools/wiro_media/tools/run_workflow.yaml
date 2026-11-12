@@ -1,0 +1,59 @@
+identity:
+  name: run_workflow
+  author: wiroai
+  label:
+    en_US: Run Workflow
+description:
+  human:
+    en_US: Run one of your saved Wiro AI workflows with its inputs and get its results back as files and text.
+  llm: Runs a saved Wiro AI workflow with the given input values and returns its results.
+parameters:
+- name: workflow
+  type: dynamic-select
+  required: true
+  form: form
+  label:
+    en_US: Workflow
+  human_description:
+    en_US: One of the workflows in your Wiro AI workspace. The list comes live from your account.
+- name: inputs
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: Inputs
+  human_description:
+    en_US: 'Optional JSON object with values for the workflow''s inputs, for example {"prompt": "a red boat"}. Inputs you leave out use their saved value or default.'
+  llm_description: Optional JSON object of the workflow's input values, keyed by input name.
+- name: files
+  type: files
+  required: false
+  form: llm
+  label:
+    en_US: Input files
+  human_description:
+    en_US: Optional files for a file input of the workflow, such as a product photo. They are uploaded to your Wiro AI project first.
+  llm_description: Optional files for the workflow's file input.
+- name: file_input
+  type: string
+  required: false
+  form: llm
+  label:
+    en_US: File input
+  human_description:
+    en_US: Optional. Which workflow input gets the files. Without it the first file input is used.
+  llm_description: Optional name of the workflow input that receives the files.
+- name: wait_seconds
+  type: number
+  required: false
+  form: form
+  label:
+    en_US: Wait up to (seconds)
+  human_description:
+    en_US: How long to wait for the result before the tool returns.
+  default: 480
+  min: 10
+  max: 540
+extra:
+  python:
+    source: tools/run_workflow.py

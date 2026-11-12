@@ -1,0 +1,285 @@
+model: qwen/qwen3-tts-12hz-1-7b
+label:
+  en_US: qwen/qwen3-tts-12hz-1-7b
+model_type: tts
+model_properties:
+  default_voice: aiden
+  voices:
+  - mode: aiden
+    name: Aiden
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: dylan
+    name: Dylan
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: eric
+    name: Eric
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: ono_anna
+    name: Ono Anna
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: ryan
+    name: Ryan
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: serena
+    name: Serena
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: sohee
+    name: Sohee
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: uncle_fu
+    name: Uncle Fu
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: vivian
+    name: Vivian
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: russian
+    name: Russian
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  - mode: spanish
+    name: Spanish
+    language:
+    - en-US
+    - zh-Hans
+    - zh-Hant
+    - ja-JP
+    - ko-KR
+    - de-DE
+    - fr-FR
+    - es-ES
+    - it-IT
+    - pt-BR
+    - ru-RU
+    - tr-TR
+    - uk-UA
+    - vi-VN
+    - th-TH
+    - id-ID
+    - pl-PL
+    - ro-RO
+    - hi-IN
+    - fa-IR
+    - sl-SI
+    - ar-TN
+  word_limit: 3000
+  audio_type: mp3
+  max_workers: 3

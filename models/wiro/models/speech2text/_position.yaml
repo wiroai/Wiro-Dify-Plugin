@@ -1,0 +1,11 @@
+- elevenlabs/speech-to-text
+- openai/whisper-large-v3
+- openai/whisper-large-v3-turbo-turkish
+- nvidia/parakeet-tdt-0-6b-v3
+- qwen/qwen3-asr-1-7b
+- openai/whisper-medium
+- coherelabs/cohere-transcribe-03-2026
+- openai/gpt-live-transcribe
+- nvidia/nemotron
+- xiaomimimo/mimo-v2-5-asr
+- elevenlabs/scribe-v3
