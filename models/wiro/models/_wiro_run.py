@@ -322,7 +322,7 @@ def tts_schema(model_id: str, detail: Mapping[str, Any]) -> dict | None:
         },
     }
     prices = detail.get("dynamicprice") or []
-    if isinstance(prices, list) and len(prices) == 1 and prices[0].get("priceMethod") == "cp-promptlength":
+    if isinstance(prices, list) and len(prices) == 1 and prices[0].get("priceMethod") == "per-input-character":
         schema["pricing"] = {
             "input": per_thousand(float(prices[0]["price"])),
             "output": "0",

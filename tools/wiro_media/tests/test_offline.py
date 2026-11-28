@@ -74,12 +74,13 @@ def test_checkbox_default():
 
 
 def test_price_text():
-    assert price_text('[{"inputs": {}, "price": 0.035, "priceMethod": "cpo"}]') == "$0.035 per output"
+    assert price_text('[{"inputs": {}, "price": 0.035, "priceMethod": "per-output-file"}]') == "$0.035 per output file"
     assert (
-        price_text([{"price": 0.05, "priceMethod": "cpr"}, {"price": 0.11, "priceMethod": "cpr"}])
+        price_text([{"price": 0.05, "priceMethod": "per-run"}, {"price": 0.11, "priceMethod": "per-run"}])
         == "from $0.05 per run"
     )
-    assert price_text([{"price": 8e-05, "priceMethod": "cp-promptlength"}]).startswith("usage-based")
+    assert price_text([{"price": 8e-05, "priceMethod": "per-input-character"}]).startswith("usage-based")
+    assert price_text([{"price": 0.02, "priceMethod": "per-input-video-second"}]).startswith("usage-based")
     assert price_text(None) == "price on the model page"
 
 
