@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 import requests
 
 API_URL = "https://api.wiro.ai/v1"
-USER_AGENT = "wiro-dify-plugin/0.2.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
+USER_AGENT = "wiro-dify-plugin/0.2.1 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
 
 REQUEST_TIMEOUT = (10, 60)
 TRANSFER_TIMEOUT = (10, 300)
