@@ -149,7 +149,7 @@ def put_files(
     item_id = str(item["id"])
     kind = str(item.get("type"))
     if kind == "combinefileinput":
-        limit = int(item.get("maxinputlenght") or 0)
+        limit = int(item.get("maxinputlength") or 0)
         if limit and len(urls) > limit:
             raise ValueError(f"{item_id} takes at most {limit} files, and {len(urls)} were given.")
         parameters[item_id] = urls
