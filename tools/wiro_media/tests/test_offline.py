@@ -2,6 +2,8 @@
 
 import hashlib
 import hmac
+import subprocess
+from pathlib import Path
 
 import pytest
 
@@ -17,7 +19,7 @@ GPT_IMAGE_ITEMS = [
         "type": "combinefileinput",
         "required": False,
         "defaultvalue": "https://cdn.wiro.ai/sample.jpg",
-        "maxinputlenght": 16,
+        "maxinputlength": 16,
     },
     {"id": "prompt", "type": "textarea", "required": True, "defaultvalue": "a sample prompt"},
     {"id": "inputImageMask", "type": "combinefileinput", "required": False, "defaultvalue": ""},
@@ -65,6 +67,25 @@ def test_files_go_where_each_field_type_takes_them():
     assert parameters == {"inputImage": ["u1", "u2"], "inputAudio": "u3", "inputDocumentUrlMultiple": "u4,u5"}
     with pytest.raises(ValueError):
         put_files({"id": "inputAudio", "type": "fileinput"}, ["a", "b"], {})
+
+
+def test_file_limit_comes_from_maxinputlength():
+    urls = [f"u{n}" for n in range(17)]
+    with pytest.raises(ValueError, match="at most 16 files"):
+        put_files(GPT_IMAGE_ITEMS[0], urls, {})
+    parameters = {}
+    put_files({"id": "inputImage", "type": "combinefileinput", "maxinput" + "lenght": 16}, urls, parameters)
+    assert parameters == {"inputImage": urls}  # the old name is not read, so it sets no cap
+
+
+def test_no_misspelled_maxinputlength():
+    # Wiro's catalog names the file limit maxinputlength; no tracked file may bring back the old misspelling.
+    root = Path(__file__).resolve().parents[3]
+    needle = ("maxinput" + "lenght").encode()
+    names = subprocess.run(["git", "ls-files", "-z"], cwd=root, capture_output=True, text=True, check=True).stdout
+    paths = [root / name for name in names.split("\0") if name]
+    found = [str(path.relative_to(root)) for path in paths if path.is_file() and needle in path.read_bytes().lower()]
+    assert not found, f"the misspelled file limit name is back in {found}"
 
 
 def test_checkbox_default():
