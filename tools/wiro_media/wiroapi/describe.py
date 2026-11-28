@@ -18,7 +18,7 @@ PUBLIC_CATEGORIES = {
     "upscale",
     "background-removal",
 }
-PER_RUN = {"cpr": "per run", "cpo": "per output"}
+PER_RUN = {"per-run": "per run", "per-output-file": "per output file"}
 
 
 def model_id_of(entry: Mapping[str, Any]) -> str:

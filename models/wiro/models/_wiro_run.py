@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 import requests
 
 API_URL = "https://api.wiro.ai/v1"
-USER_AGENT = "wiro-dify-plugin/0.2.0 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
+USER_AGENT = "wiro-dify-plugin/0.2.1 (+https://github.com/wiroai/Wiro-Dify-Plugin)"
 
 REQUEST_TIMEOUT = (10, 60)
 TRANSFER_TIMEOUT = (10, 300)
@@ -322,7 +322,7 @@ def tts_schema(model_id: str, detail: Mapping[str, Any]) -> dict | None:
         },
     }
     prices = detail.get("dynamicprice") or []
-    if isinstance(prices, list) and len(prices) == 1 and prices[0].get("priceMethod") == "cp-promptlength":
+    if isinstance(prices, list) and len(prices) == 1 and prices[0].get("priceMethod") == "per-input-character":
         schema["pricing"] = {
             "input": per_thousand(float(prices[0]["price"])),
             "output": "0",

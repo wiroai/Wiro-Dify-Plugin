@@ -24,7 +24,7 @@ from models.tts.tts import WiroText2SpeechModel
 
 ELEVEN = {
     "categories": ["text-to-speech"],
-    "dynamicprice": [{"inputs": {}, "price": 8e-05, "priceMethod": "cp-promptlength"}],
+    "dynamicprice": [{"inputs": {}, "price": 8e-05, "priceMethod": "per-input-character"}],
     "parameters": [
         {
             "items": [
